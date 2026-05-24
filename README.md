@@ -48,3 +48,4 @@ npm run dev
 
 - The current form endpoint and reCAPTCHA keys are placeholders and must be replaced before production use.
 - The app is intentionally built as a premium esports command terminal experience.
+

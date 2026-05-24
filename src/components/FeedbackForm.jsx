@@ -40,9 +40,9 @@ const FeedbackForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
-      
+
       if (response.data.status === "success") {
         setSubmitted(true);
         playSound("success");
@@ -70,7 +70,7 @@ const FeedbackForm = () => {
       name: "ign",
       label: "In-Game Name",
       type: "text",
-      placeholder: "Enter your IGN",
+      placeholder: "Enter your Game Name",
       required: true,
     },
     {
@@ -111,7 +111,7 @@ const FeedbackForm = () => {
       name: "improvements",
       label: "Season 2 Improvements",
       type: "textarea",
-      placeholder: "What should Lastz improve before Season 2?",
+      placeholder: "What should server leaders do to improve before Season 2?",
       required: true,
     },
     {
@@ -130,7 +130,7 @@ const FeedbackForm = () => {
     },
     {
       name: "heard",
-      label: "Voice Status",
+      label: "Server Leaders Listen Your Voice",
       type: "select",
       options: ["Yes, definitely", "Somewhat", "No, not really"],
       required: true,
@@ -143,15 +143,16 @@ const FeedbackForm = () => {
     },
     {
       name: "concerns",
-      label: "Migration/Season 2 Concerns",
+      label: "Did you like New NAP Rules?",
       type: "textarea",
-      placeholder: "Any concerns about migration or Season 2 preparation?",
+      placeholder:
+        "If you don’t like the NAP rules, please let me know what can be improved?",
     },
     {
       name: "finalMessage",
       label: "Final Message",
       type: "textarea",
-      placeholder: "Final message to Lastz leadership",
+      placeholder: "Final message to Server 604 leadership",
     },
   ];
 

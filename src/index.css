@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-purple: #7c3aed;
+    --neon-cyan: #00e5ff;
+    --cyber-red: #f43f5e;
+    --deep-navy: #0f172a;
+    --dark-slate: #111827;
+    --blue-gray: #1e293b;
+  }
+
+  body {
+    @apply bg-darkSlate text-white font-rajdhani overflow-x-hidden m-0 p-0;
+    background-color: var(--dark-slate);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron uppercase tracking-wider mb-4;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neonPurple/50 rounded-full hover:bg-neonPurple transition-colors duration-300;
+  }
+
+  * {
+    @apply border-white/10;
+  }
+
+  ::selection {
+    @apply bg-neonPurple/40 text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-deepNavy/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl;
+  }
+
+  .neon-text-purple {
+    @apply text-neonPurple drop-shadow-[0_0_8px_rgba(124,58,237,0.8)];
+  }
+
+  .neon-text-cyan {
+    @apply text-neonCyan drop-shadow-[0_0_8px_rgba(0,229,255,0.8)];
+  }
+
+  .btn-neon {
+    @apply relative overflow-hidden px-8 py-3 rounded-lg font-orbitron text-sm tracking-widest uppercase transition-all duration-300 active:scale-95;
+  }
+
+  .btn-neon-purple {
+    @apply btn-neon bg-neonPurple/10 border border-neonPurple/50 text-neonPurple hover:bg-neonPurple hover:text-white hover:shadow-[0_0_20px_rgba(124,58,237,0.6)];
+  }
+
+  .btn-neon-cyan {
+    @apply btn-neon bg-neonCyan/10 border border-neonCyan/50 text-neonCyan hover:bg-neonCyan hover:text-black hover:shadow-[0_0_20px_rgba(0,229,255,0.6)];
+  }
+
+  .input-glow {
+    @apply bg-white/5 border border-white/10 rounded-lg px-4 py-3 outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple/50 focus:shadow-[0_0_15px_rgba(124,58,237,0.2)] transition-all duration-300;
+  }
+
+  .label-futuristic {
+    @apply block text-xs font-orbitron text-white/60 mb-2 uppercase tracking-tighter;
+  }
+}
+
+/* Custom Glitch Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(31px, 9999px, 94px, 0); }
+  20% { clip: rect(62px, 9999px, 42px, 0); }
+  40% { clip: rect(10px, 9999px, 86px, 0); }
+  60% { clip: rect(57px, 9999px, 73px, 0); }
+  80% { clip: rect(24px, 9999px, 53px, 0); }
+  100% { clip: rect(91px, 9999px, 12px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  20% { clip: rect(30px, 9999px, 15px, 0); }
+  40% { clip: rect(80px, 9999px, 50px, 0); }
+  60% { clip: rect(50px, 9999px, 80px, 0); }
+  80% { clip: rect(15px, 9999px, 30px, 0); }
+  100% { clip: rect(100px, 9999px, 65px, 0); }
+}
